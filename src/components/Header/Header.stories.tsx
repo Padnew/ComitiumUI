@@ -20,3 +20,23 @@ export const DefaultHeader: Story = {
     <Header heading="Default heading" subHeading="Default Subheading" />
   ),
 };
+export const ColouredHeader: Story = {
+  render: () => (
+    <Header
+      heading="I'm a big red header"
+      size="2rem"
+      subHeading="I'm grey... for now"
+      color="red"
+    />
+  ),
+};
+
+export const NoSubHeadingHeader: Story = {
+  render: () => (
+    <Header
+      heading="A header with no subheading!"
+      size="1.5rem"
+      color="green"
+    />
+  ),
+};
