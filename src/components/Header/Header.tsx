@@ -22,10 +22,10 @@ export const Header: React.FC<HeaderProps> = ({
   color,
 }) => {
   const resolveSize = (input: TextSize | string): string => {
-    if (input === "sm") return "0.875rem";
-    if (input === "md") return "1rem";
-    if (input === "lg") return "1.125rem";
-    if (input === "xl") return "1.25rem";
+    if (input === "sm") return "1rem";
+    if (input === "md") return "1.5rem";
+    if (input === "lg") return "2rem";
+    if (input === "xl") return "2.5rem";
     return input;
   };
 
