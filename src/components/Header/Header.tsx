@@ -1,5 +1,6 @@
 import React, { CSSProperties } from "react";
 import clsx from "clsx";
+import { colorName } from "../../theme";
 
 type TextSize = "sm" | "md" | "lg" | "xl";
 
@@ -9,6 +10,7 @@ type HeaderProps = {
   size?: TextSize | string;
   order?: 1 | 2;
   className?: string;
+  color?: colorName;
 };
 
 export const Header: React.FC<HeaderProps> = ({
@@ -17,6 +19,7 @@ export const Header: React.FC<HeaderProps> = ({
   size = "md",
   order = 1,
   className,
+  color,
 }) => {
   const resolveSize = (input: TextSize | string): string => {
     if (input === "sm") return "0.875rem";
@@ -30,7 +33,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   const headingStyle: CSSProperties = {
     fontSize: headingFontSize,
-    color: "black",
+    color: color ? color : "black",
     margin: 0,
   };
 
