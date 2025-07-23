@@ -1,10 +1,12 @@
 import clsx from "clsx";
+import { colorName } from "../../theme";
 
 type TextProps = {
   size?: "sm" | "md" | "lg" | "xl";
   weight?: "normal" | "semibold" | "bold";
   font?: "sans" | "serif" | "mono";
   curved?: "none" | "sm" | "md" | "lg";
+  color?: colorName;
   linkTo?: string;
   className?: string;
   children?: React.ReactNode;
@@ -19,6 +21,7 @@ export const Text: React.FC<TextProps> = ({
   className,
   children,
   newTab,
+  color,
 }) => {
   const textClasses = clsx(
     {
@@ -62,6 +65,7 @@ export const Text: React.FC<TextProps> = ({
       className={textClasses}
       target={newTab ? "_blank" : undefined}
       rel={newTab ? "noopener noreferrer" : undefined}
+      style={{ color: color ?? undefined }}
     >
       {children}
     </Component>
