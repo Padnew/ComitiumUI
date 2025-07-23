@@ -30,7 +30,7 @@ export const InternalLink: Story = {
 };
 export const BoldText: Story = {
   render: () => (
-    <Text weight="bold" size="xl">
+    <Text weight="bold" size="xl" color="orange">
       Extra Large bold text
     </Text>
   ),
