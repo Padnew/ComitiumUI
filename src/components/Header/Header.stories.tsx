@@ -33,10 +33,6 @@ export const ColouredHeader: Story = {
 
 export const NoSubHeadingHeader: Story = {
   render: () => (
-    <Header
-      heading="A header with no subheading!"
-      size="1.5rem"
-      color="green"
-    />
+    <Header heading="A header with no subheading!" size="xl" color="red" />
   ),
 };

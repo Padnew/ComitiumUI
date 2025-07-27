@@ -1,16 +1,12 @@
 import React, { CSSProperties } from "react";
 import clsx from "clsx";
-import { colorName } from "../../theme";
+import { BaseComponentProps } from "../../types/BaseComponentProps";
+import { resolveSize } from "../../utils/SizeResolver";
 
-type TextSize = "sm" | "md" | "lg" | "xl";
-
-type HeaderProps = {
+type HeaderProps = BaseComponentProps & {
   heading: string;
   subHeading?: string;
-  size?: TextSize | string;
   order?: 1 | 2;
-  className?: string;
-  color?: colorName;
 };
 
 export const Header: React.FC<HeaderProps> = ({
@@ -18,23 +14,16 @@ export const Header: React.FC<HeaderProps> = ({
   subHeading,
   size = "md",
   order = 1,
-  className,
-  color,
+  color = "black",
+  style,
 }) => {
-  const resolveSize = (input: TextSize | string): string => {
-    if (input === "sm") return "1rem";
-    if (input === "md") return "1.5rem";
-    if (input === "lg") return "2rem";
-    if (input === "xl") return "2.5rem";
-    return input;
-  };
-
   const headingFontSize = resolveSize(size);
 
   const headingStyle: CSSProperties = {
     fontSize: headingFontSize,
-    color: color ? color : "black",
+    color,
     margin: 0,
+    ...style,
   };
 
   const subHeadingStyle: CSSProperties = {
@@ -42,8 +31,9 @@ export const Header: React.FC<HeaderProps> = ({
     color: "gray",
     margin: 0,
   };
+
   return (
-    <div className={clsx("flex flex-col", className)}>
+    <div style={{ flex: 1, flexDirection: "column" }}>
       {order === 1 ? (
         <>
           <p style={headingStyle}>{heading}</p>
