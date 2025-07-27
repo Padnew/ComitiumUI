@@ -1,11 +1,15 @@
 import { createContext, useContext, ReactNode } from "react";
-import { colors } from "./theme";
+import { colors, fontFamilies } from "./theme";
 
 type Theme = {
   colors: typeof colors & Record<string, string>;
+  fontFamilies: typeof fontFamilies & Record<string, string>;
 };
 
-const ThemeContext = createContext<Theme>({ colors: colors });
+const ThemeContext = createContext<Theme>({
+  colors,
+  fontFamilies,
+});
 
 export const useTheme = () => useContext(ThemeContext);
 
@@ -16,7 +20,7 @@ type ThemeProviderProps = {
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({
   children,
-  theme = { colors: colors },
+  theme = { colors, fontFamilies },
 }) => {
   return (
     <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
