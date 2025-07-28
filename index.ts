@@ -6,3 +6,4 @@ export * from "./src/components/Tabs";
 export * from "./src/components/Text";
 export * from "./src/components/TextInput";
 export * from "./src/components/Header";
+export * from "./src/components/LinkTo"
