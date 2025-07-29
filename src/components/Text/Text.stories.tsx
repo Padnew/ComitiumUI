@@ -24,7 +24,7 @@ export const BoldText: Story = {
 };
 export const FontChange: Story = {
   render: () => (
-    <Text fontFamily="mono" size="lg">
+    <Text fontFamily="mono" size="lg" color="blue">
       Mono large text
     </Text>
   ),
