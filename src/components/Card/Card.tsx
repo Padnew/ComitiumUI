@@ -1,6 +1,7 @@
 import React from "react";
-import clsx from "clsx";
 import { Divider } from "../Divider";
+import { resolveShadow } from "../../utils/ShadowResolver";
+import { resolveRadius } from "../../utils/RadiusResolver";
 
 type CardProps = {
   title?: string;
@@ -9,8 +10,8 @@ type CardProps = {
   children?: React.ReactNode;
   style?: React.CSSProperties;
   withDividers?: boolean;
-  className?: string;
   curved?: "none" | "sm" | "md" | "lg";
+  backgroundColor?: string;
 };
 
 export const Card: React.FC<CardProps> = ({
@@ -20,36 +21,34 @@ export const Card: React.FC<CardProps> = ({
   children,
   style,
   withDividers = false,
-  className,
-  curved,
+  curved = "md",
+  backgroundColor = "#ffffff",
 }) => {
+  const baseStyle: React.CSSProperties = {
+    padding: "1rem",
+    boxShadow: resolveShadow(shadow),
+    borderRadius: resolveRadius(curved),
+    backgroundColor,
+    ...style,
+  };
+
   return (
-    <div
-      className={clsx(
-        "p-4 bg-white",
-        {
-          "shadow-none": shadow === "none",
-          "shadow-sm": shadow === "sm",
-          "shadow-md": shadow === "md",
-          "shadow-lg": shadow === "lg",
-        },
-        {
-          "rounded-none": curved === "none",
-          "rounded-sm": curved === "sm",
-          "rounded-md": curved === "md",
-          "rounded-lg": curved === "lg",
-        },
-        className
-      )}
-      style={style}
-    >
+    <div style={baseStyle}>
       {title && (
         <>
-          <h2 className="text-lg font-semibold mb-2">{title}</h2>
+          <h2
+            style={{
+              fontSize: "1.125rem",
+              fontWeight: 600,
+              marginBottom: "0.5rem",
+            }}
+          >
+            {title}
+          </h2>
           {withDividers && <Divider />}
         </>
       )}
-      <div className="mb-2">{children}</div>
+      <div style={{ marginBottom: "0.5rem" }}>{children}</div>
       {footer && (
         <>
           {withDividers && <Divider />}
