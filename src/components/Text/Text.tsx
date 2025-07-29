@@ -13,8 +13,8 @@ type TextProps = {
 
 export const Text: React.FC<TextProps> = ({
   children,
-  color = "#1c6ae8",
-  size = "md",
+  color = "black",
+  size = "sm",
   fontWeight = "normal",
   fontFamily = "sans",
   style,
