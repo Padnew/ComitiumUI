@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Card } from "./index";
+import { Text } from "../Text";
 
 const meta: Meta<typeof Card> = {
   title: "Components/Card",
@@ -31,6 +32,19 @@ export const MoreAdvancedCard: Story = {
       <Card curved="md">
         <h2>A card within a card with a border</h2>
       </Card>
+    </Card>
+  ),
+};
+
+export const CardColouring: Story = {
+  render: () => (
+    <Card
+      title="Consider starring this project"
+      curved="sm"
+      footer="ComitiumUI - 2025"
+      backgroundColor="#25bab8"
+    >
+      <Text color="grey">It helps a lot with the development</Text>
     </Card>
   ),
 };
