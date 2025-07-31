@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 
 type DividerProps = {
   orientation?: "horizontal" | "vertical";
@@ -16,21 +16,15 @@ export const Divider: React.FC<DividerProps> = ({
   style,
 }) => {
   const isHorizontal = orientation === "horizontal";
-
-  return (
-    <div
-      role="separator"
-      className={className}
-      style={{
-        backgroundColor: color,
-        width: isHorizontal ? "100%" : thickness,
-        height: isHorizontal ? thickness : "100%",
-        marginTop: isHorizontal ? "5px" : undefined,
-        marginBottom: isHorizontal ? "5px" : undefined,
-        marginLeft: !isHorizontal ? "5px" : undefined,
-        marginRight: !isHorizontal ? "5px" : undefined,
-        ...style,
-      }}
-    />
-  );
+  const baseStyles: CSSProperties = {
+    backgroundColor: color,
+    width: isHorizontal ? "100%" : thickness,
+    height: isHorizontal ? thickness : "100%",
+    marginTop: isHorizontal ? "5px" : undefined,
+    marginBottom: isHorizontal ? "5px" : undefined,
+    marginLeft: !isHorizontal ? "5px" : undefined,
+    marginRight: !isHorizontal ? "5px" : undefined,
+    ...style,
+  };
+  return <div role="separator" className={className} style={baseStyles} />;
 };
