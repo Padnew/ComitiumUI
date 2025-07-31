@@ -5,31 +5,25 @@ const meta: Meta<typeof Flex> = {
   title: "Components/Flex",
   component: Flex,
   tags: ["autodocs"],
-  args: {
-    children: [
-      <div key="1" style={{ background: "#f11", padding: "1rem" }}>
-        Child one
-      </div>,
-      <div key="2" style={{ background: "#a11f87", padding: "1rem" }}>
-        Child two
-      </div>,
-    ],
-  },
 };
 
 export default meta;
 type Story = StoryObj<typeof Flex>;
 
 export const RowOfComponentsWithSpacing: Story = {
-  args: {
-    spacing: 10,
-    direction: "row",
-  },
+  render: () => (
+    <Flex direction="row" spacing="xl">
+      <div style={{ background: "#f11", padding: "1rem" }}>Child one</div>
+      <div style={{ background: "#a11f87", padding: "1rem" }}>Child two</div>
+    </Flex>
+  ),
 };
 
 export const VerticalFlexedComponents: Story = {
-  args: {
-    direction: "column",
-    spacing: 3,
-  },
+  render: () => (
+    <Flex direction="column">
+      <div style={{ background: "#f11", padding: "1rem" }}>Child one</div>
+      <div style={{ background: "#a11f87", padding: "1rem" }}>Child two</div>
+    </Flex>
+  ),
 };
