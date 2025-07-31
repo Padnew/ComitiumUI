@@ -1,47 +1,61 @@
 import React from "react";
-import clsx from "clsx";
-import { colorName } from "../../theme";
 import { useTheme } from "../../theme/ThemeProvider";
+import { colorName } from "../../theme";
+
+type ButtonVariant = "default" | "outline" | "cancel";
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: "default" | "outline" | "cancel";
+  variant?: ButtonVariant;
   color?: colorName;
 };
 
 export const Button: React.FC<ButtonProps> = ({
   variant = "default",
-  className,
   children,
-  color,
+  color = "blue",
+  style,
   ...props
 }) => {
   const { colors } = useTheme();
 
-  const base =
-    "px-4 py-2 rounded font-medium transition-colors border border-radius-2px bg--300";
-  const variantClasses = {
-    default: `text-gray-700`,
-    outline: "border border-gray-300 text-gray-800 hover:bg-gray-100",
-    cancel: "bg-red-600 text-white hover:bg-red-700",
+  const baseStyles: React.CSSProperties = {
+    padding: "0.5rem 1rem",
+    borderRadius: "4px",
+    fontWeight: 500,
+    border: "1px solid transparent",
+    transition: "background-color 0.2s, border-color 0.2s",
+    cursor: "pointer",
+    fontFamily: "inherit",
+    ...style,
   };
 
-  const bgcolorStyle =
-    variant === "default" && color
-      ? {
-          backgroundColor: colors[color],
-        }
-      : variant == "outline" && color
-      ? {
-          borderColor: colors[color],
-        }
-      : undefined;
+  const variantStyles = (): React.CSSProperties => {
+    const themedColor = colors[color];
+
+    switch (variant) {
+      case "outline":
+        return {
+          color: themedColor,
+          backgroundColor: "transparent",
+          borderColor: themedColor,
+        };
+      case "cancel":
+        return {
+          color: "#fff",
+          backgroundColor: "#e3342f",
+          borderColor: "#cc1f1a",
+        };
+      case "default":
+      default:
+        return {
+          color: "#fff",
+          backgroundColor: themedColor,
+        };
+    }
+  };
 
   return (
-    <button
-      className={clsx(base, variantClasses[variant], className)}
-      style={bgcolorStyle}
-      {...props}
-    >
+    <button style={{ ...baseStyles, ...variantStyles() }} {...props}>
       {children}
     </button>
   );
