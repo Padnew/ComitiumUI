@@ -1,31 +1,29 @@
-import clsx from "clsx";
+import { resolveSize } from "../../utils/SizeResolver";
+import { CSSProperties } from "react";
 
 type FlexProps = {
   direction?: "row" | "column";
-  spacing?: number;
+  spacing?: "sm" | "md" | "lg" | "xl" | string;
   className?: string;
   children: React.ReactNode;
+  style?: CSSProperties;
 };
 
 export const Flex: React.FC<FlexProps> = ({
   direction = "row",
-  spacing = 1,
+  spacing = "1rem",
   className,
   children,
+  style,
 }) => {
-  const gapStyle = {
-    gap: `${spacing}rem`,
+  const baseStyle: React.CSSProperties = {
+    display: "flex",
+    gap: resolveSize(spacing),
+    flexDirection: direction,
+    ...style,
   };
-
   return (
-    <div
-      className={clsx(
-        "flex",
-        direction === "column" ? "flex-col" : "flex-row",
-        className
-      )}
-      style={gapStyle}
-    >
+    <div className={className} style={baseStyle}>
       {children}
     </div>
   );
