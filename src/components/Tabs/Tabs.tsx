@@ -37,10 +37,6 @@ export const Tabs: React.FC<TabsProps> = ({
     borderBottom: "2px solid orange",
   };
 
-  const hoverTabStyle: CSSProperties = {
-    color: "black",
-  };
-
   const inactiveTabStyle: CSSProperties = {
     color: "gray",
   };
