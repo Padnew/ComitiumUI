@@ -35,7 +35,34 @@ export const SimpleTabs: Story = {
         },
         {
           label: "Text Tab",
-          content: <Text weight="bold">Star this project!</Text>,
+          content: <Text fontWeight="bold">Star this project!</Text>,
+        },
+      ]}
+      defaultTab={0}
+    />
+  ),
+};
+export const ColouredTabs: Story = {
+  render: () => (
+    <Tabs
+      color="green"
+      tabs={[
+        {
+          label: "Primary Tab",
+          content: (
+            <Text>
+              Notice the colours at the top changed to green? Default is orange
+            </Text>
+          ),
+        },
+        {
+          label: "Secondary Tab",
+          content: (
+            <Text>
+              This is because orange is my favourite colour, shame it's not
+              universally loved
+            </Text>
+          ),
         },
       ]}
       defaultTab={0}
