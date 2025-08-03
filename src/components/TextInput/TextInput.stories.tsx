@@ -11,13 +11,12 @@ export default meta;
 type Story = StoryObj<typeof TextInput>;
 
 export const DefaultTextInput: Story = {
-  args: {
-    variant: "default",
-  },
+  render: () => <TextInput />,
+};
+export const LabelTextInput: Story = {
+  render: () => <TextInput label="Username:" />,
 };
 
 export const SensitiveTextInput: Story = {
-  args: {
-    variant: "sensitive",
-  },
+  render: () => <TextInput variant="sensitive" label="Password:" />,
 };
