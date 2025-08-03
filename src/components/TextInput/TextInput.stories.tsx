@@ -14,9 +14,11 @@ export const DefaultTextInput: Story = {
   render: () => <TextInput />,
 };
 export const LabelTextInput: Story = {
-  render: () => <TextInput label="Username:" />,
+  render: () => <TextInput label="XL Username:" size="xl" />,
 };
 
 export const SensitiveTextInput: Story = {
-  render: () => <TextInput variant="sensitive" label="Password:" />,
+  render: () => (
+    <TextInput variant="sensitive" size="lg" label="Large Password:" />
+  ),
 };
