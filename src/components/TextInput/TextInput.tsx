@@ -1,27 +1,45 @@
-import clsx from "clsx";
+import { resolveRadius } from "../../utils/RadiusResolver";
+import { resolveSize } from "../../utils/SizeResolver";
 
 type TextInputProps = React.ButtonHTMLAttributes<HTMLInputElement> & {
   variant?: "default" | "sensitive";
+  label?: string;
 };
 
 export const TextInput: React.FC<TextInputProps> = ({
   variant = "default",
   className,
   children,
+  label,
   ...props
 }) => {
-  const base =
-    "px-4 py-2 rounded font-medium transition-colors border border-radius-2px";
-  const variants = {
-    default: "bg-grey-300 text-black focus:bg-grey-200",
-    sensitive: "bg-grey-300 text-black focus:bg-grey-200",
+  const baseStyles: React.CSSProperties = {
+    padding: "2px 2px 4px 4px",
+    borderRadius: resolveRadius("sm"),
+    fontSize: resolveSize("md"),
+    border: "2px grey solid",
   };
 
   return (
-    <input
-      type={variant == "sensitive" ? "password" : "text"}
-      className={clsx(base, variants[variant], className)}
-      {...props}
-    />
+    <>
+      {label != null ? (
+        <>
+          <p style={{ color: "grey", fontSize: "0.8rem" }}>{label}</p>
+          <input
+            type={variant == "sensitive" ? "password" : "text"}
+            style={baseStyles}
+            className={className}
+            {...props}
+          />
+        </>
+      ) : (
+        <input
+          type={variant == "sensitive" ? "password" : "text"}
+          style={baseStyles}
+          className={className}
+          {...props}
+        />
+      )}
+    </>
   );
 };
