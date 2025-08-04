@@ -6,10 +6,9 @@ type Theme = {
   fontFamilies: typeof fontFamilies & Record<string, string>;
 };
 
-const ThemeContext = createContext<Theme>({
-  colors,
-  fontFamilies,
-});
+const defaultTheme: Theme = { colors, fontFamilies };
+
+const ThemeContext = createContext<Theme>(defaultTheme);
 
 export const useTheme = () => useContext(ThemeContext);
 
@@ -20,9 +19,20 @@ type ThemeProviderProps = {
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({
   children,
-  theme = { colors, fontFamilies },
+  theme = defaultTheme,
 }) => {
   return (
-    <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={theme}>
+      <>
+        <style>{`
+          body {
+            font-family: ${theme.fontFamilies.sans};
+            margin: 0;
+            padding: 0;
+          }
+        `}</style>
+        {children}
+      </>
+    </ThemeContext.Provider>
   );
 };
