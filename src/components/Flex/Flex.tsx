@@ -4,7 +4,6 @@ import { CSSProperties } from "react";
 type FlexProps = {
   direction?: "row" | "column";
   spacing?: "sm" | "md" | "lg" | "xl" | string;
-  className?: string;
   children: React.ReactNode;
   style?: CSSProperties;
 };
@@ -12,7 +11,6 @@ type FlexProps = {
 export const Flex: React.FC<FlexProps> = ({
   direction = "row",
   spacing = "1rem",
-  className,
   children,
   style,
 }) => {
@@ -22,9 +20,5 @@ export const Flex: React.FC<FlexProps> = ({
     flexDirection: direction,
     ...style,
   };
-  return (
-    <div className={className} style={baseStyle}>
-      {children}
-    </div>
-  );
+  return <div style={baseStyle}>{children}</div>;
 };

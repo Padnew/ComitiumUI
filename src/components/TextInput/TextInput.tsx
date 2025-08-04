@@ -9,7 +9,6 @@ type TextInputProps = React.ButtonHTMLAttributes<HTMLInputElement> & {
 
 export const TextInput: React.FC<TextInputProps> = ({
   variant = "default",
-  className,
   children,
   label,
   size = "md",
@@ -30,7 +29,6 @@ export const TextInput: React.FC<TextInputProps> = ({
       <input
         type={variant == "sensitive" ? "password" : "text"}
         style={baseStyles}
-        className={className}
         {...props}
       />
     </>

@@ -1,5 +1,4 @@
 import React, { CSSProperties, useState } from "react";
-import clsx from "clsx";
 import { colorName } from "../../theme";
 
 type Tab = {
@@ -11,7 +10,6 @@ type TabsProps = {
   tabs: Tab[];
   defaultTab?: number;
   fullWidth?: boolean;
-  className?: string;
   color?: colorName | string;
 };
 
@@ -19,7 +17,6 @@ export const Tabs: React.FC<TabsProps> = ({
   tabs,
   defaultTab = 0,
   fullWidth = false,
-  className,
   color = "orange",
 }) => {
   const [activeIndex, setActiveIndex] = useState(defaultTab);
@@ -45,7 +42,7 @@ export const Tabs: React.FC<TabsProps> = ({
   };
 
   return (
-    <div className={className} style={{ width: "100%" }}>
+    <div style={{ width: "100%" }}>
       <div
         style={{
           display: "flex",
