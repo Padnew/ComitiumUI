@@ -1,15 +1,15 @@
 # 🏛 Comitium UI
 
-A lightweight, customizable React component library built with **TypeScript**, **Tailwind CSS**, and **Storybook**. Designed for speed, accessibility, and composability — ideal for modern frontend applications.
+A lightweight and customizable React component library. Designed for speed, accessibility, and composability — ideal for modern frontend applications or rapid frameworking.
 
 ---
 
 ## ✨ Features
 
-- 🧩 Prebuilt, accessible UI components
-- 🎨 Tailwind-based styling with variant support
-- 📦 Packaged for easy consumption via npm (TBC)
+- 🧩 Prebuilt, accessible UI components with out-the-box usability
+- 🎨 Independent styling and customisable theming 
+- 📦 Packaged and managed via NPM (TBC)
 - 📚 Storybook integration for live previews and documentation
-- 🧪 Tested with Vitest (TBC)
+- 🧪 Fully tested with Vitest (TBC)
 
 ---
