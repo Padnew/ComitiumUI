@@ -6,7 +6,7 @@ type Theme = {
   fontFamilies: typeof fontFamilies & Record<string, string>;
 };
 
-const defaultTheme: Theme = { colors, fontFamilies };
+export const defaultTheme: Theme = { colors, fontFamilies };
 
 const ThemeContext = createContext<Theme>(defaultTheme);
 
