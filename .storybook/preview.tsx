@@ -2,14 +2,7 @@ import type { Preview } from "@storybook/react-vite";
 import React from "react";
 import "../src/styles.css";
 
-import { ThemeProvider } from "../src/theme/ThemeProvider";
-import { colors, fontFamilies } from "../src/theme/theme";
-
-const defaultTheme = {
-  colors,
-  fontFamilies,
-};
-
+import { defaultTheme, ThemeProvider } from "../src/theme/ThemeProvider";
 const preview: Preview = {
   parameters: {
     controls: {
