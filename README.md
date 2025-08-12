@@ -8,7 +8,7 @@ A lightweight and customizable React component library. Designed for speed, acce
 
 - 🧩 Prebuilt, accessible UI components with out-the-box usability
 - 🎨 Independent styling and customisable theming 
-- 📦 Packaged and managed via NPM (TBC)
+- 📦 Packaged and managed via NPM
 - 📚 Storybook integration for live previews and documentation
 - 🧪 Fully tested with Vitest (TBC)
 
