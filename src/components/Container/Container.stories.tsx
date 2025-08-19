@@ -27,7 +27,7 @@ export const StyledContainer: Story = {
       curved="md"
       shadow="lg"
       backgroundColor="powderBlue"
-      padding="lg"
+      padding="xl"
     >
       A container can accept similar styling props to a Card
     </Container>
