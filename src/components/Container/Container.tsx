@@ -9,7 +9,7 @@ type ContainerProps = {
   style?: React.CSSProperties;
   curved?: "none" | "sm" | "md" | "lg";
   backgroundColor?: string;
-  padding?: "sm" | "md" | "lg";
+  padding?: "sm" | "md" | "lg" | "xl";
 };
 
 export const Container: React.FC<ContainerProps> = ({
