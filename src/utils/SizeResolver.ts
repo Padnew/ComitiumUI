@@ -13,3 +13,11 @@ export const resolveSize = (size?: string): string => {
     if (size === "xl") return "1.125rem";
     return "0.875rem";
   };
+
+  export const resolvePadding = (size?: string): string => {
+    if (size === "sm") return "0.75rem";
+    if (size === "md") return "0.875rem";
+    if (size === "lg") return "1rem";
+    if (size === "xl") return "1.125rem";
+    return "0.875rem";
+  };
