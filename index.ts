@@ -7,3 +7,4 @@ export * from "./src/components/Text";
 export * from "./src/components/TextInput";
 export * from "./src/components/Header";
 export * from "./src/components/LinkTo"
+export * from "./src/components/Container"
