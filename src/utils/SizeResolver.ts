@@ -21,3 +21,12 @@ export const resolveSize = (size?: string): string => {
     if (size === "xl") return "2.25rem";
     return "1rem"
   };
+
+  export const resolveGridSize = (size?: string): string => {
+    if (size === "sm") return "0.25rem";
+    if (size === "md") return "0.75rem";
+    if (size === "lg") return "2rem";
+    if (size === "xl") return "3rem";
+    if (size === "none") return "0rem";
+    return "0.75rem"
+  };
