@@ -37,3 +37,17 @@ export const SimpleGrid: Story = {
     </Container>
   ),
 };
+export const ResizedGrid: Story = {
+  render: () => (
+    <Container>
+      <Text>Now with a smaller spacing</Text>
+      <AutoGrid spacing="sm">
+        {items.map((a) => (
+          <Card backgroundColor="powderblue" key={a.value}>
+            {a.label}
+          </Card>
+        ))}
+      </AutoGrid>
+    </Container>
+  ),
+};
