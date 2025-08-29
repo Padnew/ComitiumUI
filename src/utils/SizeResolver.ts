@@ -22,10 +22,10 @@ export const resolveSize = (size?: string): string => {
     return "1rem"
   };
 
-  export const gridSizeResolver = (size?: string): string => {
-    if (size === "sm") return "1rem";
-    if (size === "md") return "1.25rem";
+  export const resolveGridSize = (size?: string): string => {
+    if (size === "sm") return "0.25rem";
+    if (size === "md") return "0.75rem";
     if (size === "lg") return "2rem";
-    if (size === "xl") return "2.25rem";
-    return "1rem"
+    if (size === "xl") return "3rem";
+    return "0.75rem"
   };
