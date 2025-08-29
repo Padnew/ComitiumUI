@@ -1,5 +1,4 @@
 import React, { CSSProperties } from "react";
-import { useTheme } from "../../theme/ThemeProvider";
 import { resolveGridSize } from "../../utils/SizeResolver";
 
 type AutoGridProps = {
