@@ -5,7 +5,7 @@ import { resolveGridSize } from "../../utils/SizeResolver";
 type AutoGridProps = {
   children: React.ReactNode;
   columns?: number;
-  spacing?: "sm" | "md" | "lg" | "xl" | number;
+  spacing?: "sm" | "md" | "lg" | "xl" | "none" | number;
   style?: React.CSSProperties;
 };
 

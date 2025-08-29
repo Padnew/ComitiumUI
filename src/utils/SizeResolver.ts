@@ -27,5 +27,6 @@ export const resolveSize = (size?: string): string => {
     if (size === "md") return "0.75rem";
     if (size === "lg") return "2rem";
     if (size === "xl") return "3rem";
+    if (size === "none") return "0rem";
     return "0.75rem"
   };
