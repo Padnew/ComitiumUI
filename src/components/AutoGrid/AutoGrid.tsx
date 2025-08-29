@@ -1,6 +1,6 @@
 import React, { CSSProperties } from "react";
 import { useTheme } from "../../theme/ThemeProvider";
-import { gridSizeResolver } from "../../utils/SizeResolver";
+import { resolveGridSize } from "../../utils/SizeResolver";
 
 type AutoGridProps = {
   children: React.ReactNode;
@@ -15,7 +15,7 @@ export const AutoGrid: React.FC<AutoGridProps> = ({
   spacing = "md",
   style,
 }) => {
-  const gap = typeof spacing === "number" ? spacing : gridSizeResolver(spacing);
+  const gap = typeof spacing === "number" ? spacing : resolveGridSize(spacing);
   const baseStyles: CSSProperties = {
     display: "grid",
     gridTemplateColumns: columns
