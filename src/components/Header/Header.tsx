@@ -1,5 +1,4 @@
 import React, { CSSProperties } from "react";
-import clsx from "clsx";
 import { BaseComponentProps } from "../../types/BaseComponentProps";
 import { resolveSize } from "../../utils/SizeResolver";
 
