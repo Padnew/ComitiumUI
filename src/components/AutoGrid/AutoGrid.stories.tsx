@@ -25,11 +25,15 @@ export const SimpleGrid: Story = {
   render: () => (
     <Container>
       <Text>
-        The items below in the auto grid are contained to their cards:
+        Each card will grow to fill the space between the parent and the spacing
       </Text>
       <AutoGrid>
         {items.map((a) => (
-          <Card backgroundColor="orange" key={a.value}>
+          <Card
+            backgroundColor="orange"
+            style={{ alignContent: "center", textAlign: "center" }}
+            key={a.value}
+          >
             {a.label}
           </Card>
         ))}
@@ -43,7 +47,29 @@ export const ResizedGrid: Story = {
       <Text>Now with a smaller spacing</Text>
       <AutoGrid spacing="sm">
         {items.map((a) => (
-          <Card backgroundColor="powderblue" key={a.value}>
+          <Card
+            backgroundColor="powderblue"
+            style={{ alignContent: "center", textAlign: "center" }}
+            key={a.value}
+          >
+            {a.label}
+          </Card>
+        ))}
+      </AutoGrid>
+    </Container>
+  ),
+};
+export const ColumnSpecificGri: Story = {
+  render: () => (
+    <Container>
+      <Text>Specifying the column size will still autofill the space</Text>
+      <AutoGrid spacing={20} columns={2}>
+        {items.map((a) => (
+          <Card
+            backgroundColor="darkgreen"
+            style={{ height: 50, alignContent: "center", textAlign: "center" }}
+            key={a.value}
+          >
             {a.label}
           </Card>
         ))}
