@@ -21,7 +21,7 @@ export const RowOfComponentsWithSpacing: Story = {
 
 export const VerticalFlexedComponents: Story = {
   render: () => (
-    <Flex direction="column">
+    <Flex direction="column" spacing={5}>
       <div style={{ background: "#f11", padding: "1rem" }}>Child one</div>
       <div style={{ background: "#a11f87", padding: "1rem" }}>Child two</div>
     </Flex>
