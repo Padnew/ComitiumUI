@@ -1,6 +1,6 @@
 {
   "name": "comitium-ui",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Comitium — a React component library",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
