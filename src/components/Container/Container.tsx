@@ -1,7 +1,7 @@
 import React from "react";
 import { resolveShadow } from "../../utils/ShadowResolver";
 import { resolveRadius } from "../../utils/RadiusResolver";
-import { resolvePadding } from "../../utils/SizeResolver";
+import { BaseStyleResolver } from "../../types/BaseComponentProps";
 
 type ContainerProps = {
   shadow?: "none" | "sm" | "md" | "lg";
@@ -9,7 +9,6 @@ type ContainerProps = {
   style?: React.CSSProperties;
   curved?: "none" | "sm" | "md" | "lg";
   backgroundColor?: string;
-  padding?: "sm" | "md" | "lg" | "xl";
 };
 
 export const Container: React.FC<ContainerProps> = ({
@@ -18,15 +17,16 @@ export const Container: React.FC<ContainerProps> = ({
   style,
   curved = "none",
   backgroundColor = "inherit",
-  padding = "md",
+  ...props
 }) => {
-  const baseStyle: React.CSSProperties = {
+  const baseStyles = BaseStyleResolver(props);
+
+  const containerStyles: React.CSSProperties = {
     boxShadow: resolveShadow(shadow),
     borderRadius: resolveRadius(curved),
-    padding: resolvePadding(padding),
     backgroundColor,
-    ...style,
+    ...baseStyles,
   };
 
-  return <div style={baseStyle}>{children}</div>;
+  return <div style={containerStyles}>{children}</div>;
 };
