@@ -17,14 +17,14 @@ export const PlainText: Story = {
 
 export const BoldText: Story = {
   render: () => (
-    <Text fontWeight="bold" size="xl" color="orange">
+    <Text fontWeight="bold" fs="xl" color="orange">
       Extra Large bold text
     </Text>
   ),
 };
 export const FontChange: Story = {
   render: () => (
-    <Text fontFamily="mono" size="lg" color="blue">
+    <Text fontFamily="mono" fs="lg" color="blue">
       Mono large text
     </Text>
   ),

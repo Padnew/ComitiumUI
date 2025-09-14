@@ -12,7 +12,7 @@ type Story = StoryObj<typeof Header>;
 
 export const LargeHeader: Story = {
   render: () => (
-    <Header heading="Big heading" size="3rem" subHeading="Smaller heading" />
+    <Header size="xl" heading="Big heading" subHeading="Smaller heading" />
   ),
 };
 export const DefaultHeader: Story = {
@@ -24,7 +24,7 @@ export const ColouredHeader: Story = {
   render: () => (
     <Header
       heading="I'm a big red header"
-      size="2rem"
+      size="lg"
       subHeading="I'm grey... for now"
       color="red"
     />
@@ -32,7 +32,5 @@ export const ColouredHeader: Story = {
 };
 
 export const NoSubHeadingHeader: Story = {
-  render: () => (
-    <Header heading="A header with no subheading!" size="xl" color="red" />
-  ),
+  render: () => <Header heading="A header with no subheading!" color="red" />,
 };

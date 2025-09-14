@@ -1,27 +1,29 @@
 import React, { CSSProperties } from "react";
 import { resolveGridSize } from "../../utils/SizeResolver";
+import { BaseStyleResolver } from "../../types/BaseComponentProps";
 
 type AutoGridProps = {
   children: React.ReactNode;
   columns?: number;
   spacing?: "sm" | "md" | "lg" | "xl" | "none" | number;
-  style?: React.CSSProperties;
 };
 
 export const AutoGrid: React.FC<AutoGridProps> = ({
   children,
   columns,
   spacing = "md",
-  style,
+  ...props
 }) => {
+  const baseStyles = BaseStyleResolver(props);
   const gap = typeof spacing === "number" ? spacing : resolveGridSize(spacing);
-  const baseStyles: CSSProperties = {
+
+  const gridStyles: CSSProperties = {
     display: "grid",
     gridTemplateColumns: columns
       ? `repeat(${columns}, 1fr)`
       : "repeat(auto-fit, minmax(200px, 1fr))",
     gap: gap,
-    ...style,
+    ...baseStyles,
   };
-  return <div style={baseStyles}>{children}</div>;
+  return <div style={gridStyles}>{children}</div>;
 };
