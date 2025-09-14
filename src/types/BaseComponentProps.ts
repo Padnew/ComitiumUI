@@ -1,7 +1,9 @@
 import { CSSProperties } from "react";
+import { fontSizeMap, spacingMap } from "../utils/SizeResolver";
+import { colorName } from "../theme";
 
 export type BaseComponentProps = {
-    color?: string;
+    color?: colorName;
     padding?: "sm" | "md" | "lg" | "xl" | number;
     margin?: "sm" | "md" | "lg" | "xl" | number;
     fs? : "sm" | "md" | "lg" | "xl" | number;
@@ -9,8 +11,6 @@ export type BaseComponentProps = {
     style?: React.CSSProperties;
   };
 
-const spacingMap = { sm: 4, md: 8, lg: 16, xl: 24 };
-const fontSizeMap = { sm: 8, md: 12, lg: 16, xl: 24 };
 
   export const BaseStyleResolver = (props: BaseComponentProps): CSSProperties => {
   const { padding, margin, fs: ts, color, textAlign, style } = props;
