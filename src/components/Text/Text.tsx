@@ -1,4 +1,4 @@
-import { resolveSize } from "../../utils/SizeResolver";
+import { resolveTextSize } from "../../utils/SizeResolver";
 import { resolveFontFamily } from "../../utils/FontResolver";
 import { fontFamilyName, colorName } from "../../theme";
 
@@ -21,7 +21,7 @@ export const Text: React.FC<TextProps> = ({
 }) => {
   const resolvedStyle: React.CSSProperties = {
     color,
-    fontSize: resolveSize(size),
+    fontSize: resolveTextSize(size),
     fontWeight,
     fontFamily: resolveFontFamily(fontFamily),
     ...style,

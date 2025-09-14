@@ -1,6 +1,6 @@
 import React, { CSSProperties } from "react";
 import { BaseComponentProps } from "../../types/BaseComponentProps";
-import { resolveSize } from "../../utils/SizeResolver";
+import { resolveTextSize } from "../../utils/SizeResolver";
 
 type HeaderProps = BaseComponentProps & {
   heading: string;
@@ -16,7 +16,7 @@ export const Header: React.FC<HeaderProps> = ({
   color = "black",
   style,
 }) => {
-  const headingFontSize = resolveSize(size);
+  const headingFontSize = resolveTextSize(size);
 
   const headingStyle: CSSProperties = {
     fontSize: headingFontSize,

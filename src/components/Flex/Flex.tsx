@@ -1,4 +1,4 @@
-import { resolveSize } from "../../utils/SizeResolver";
+import { resolveTextSize } from "../../utils/SizeResolver";
 import { CSSProperties } from "react";
 
 type FlexProps = {
@@ -16,7 +16,7 @@ export const Flex: React.FC<FlexProps> = ({
 }) => {
   const baseStyle: React.CSSProperties = {
     display: "flex",
-    gap: typeof spacing === "number" ? spacing : resolveSize(spacing),
+    gap: typeof spacing === "number" ? spacing : resolveTextSize(spacing),
     flexDirection: direction,
     ...style,
   };
