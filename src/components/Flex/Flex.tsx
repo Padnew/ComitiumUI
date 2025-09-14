@@ -1,4 +1,4 @@
-import { resolveTextSize } from "../../utils/SizeResolver";
+import { BaseStyleResolver } from "../../types/BaseComponentProps";
 import { CSSProperties } from "react";
 
 type FlexProps = {
@@ -12,13 +12,19 @@ export const Flex: React.FC<FlexProps> = ({
   direction = "row",
   spacing = "md",
   children,
-  style,
+  ...props
 }) => {
-  const baseStyle: React.CSSProperties = {
+  const resolvedSystemStyles = BaseStyleResolver(props);
+
+  const baseStyle: CSSProperties = {
     display: "flex",
-    gap: typeof spacing === "number" ? spacing : resolveTextSize(spacing),
     flexDirection: direction,
-    ...style,
+    gap:
+      typeof spacing === "number"
+        ? `${spacing}px`
+        : BaseStyleResolver({ fs: spacing }).fontSize,
+    ...resolvedSystemStyles,
   };
+
   return <div style={baseStyle}>{children}</div>;
 };
