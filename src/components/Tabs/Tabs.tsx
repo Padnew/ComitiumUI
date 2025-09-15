@@ -39,6 +39,7 @@ export const Tabs: React.FC<TabsProps> = ({
 
   const inactiveTabStyle: CSSProperties = {
     color: "gray",
+    borderBottom: "none",
   };
 
   return (
