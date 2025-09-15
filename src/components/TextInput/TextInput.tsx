@@ -1,24 +1,26 @@
+import {
+  BaseComponentProps,
+  BaseStyleResolver,
+} from "../../types/BaseComponentProps";
 import { resolveRadius } from "../../utils/RadiusResolver";
-import { resolveInputSize } from "../../utils/SizeResolver";
 
-type TextInputProps = React.ButtonHTMLAttributes<HTMLInputElement> & {
+type TextInputProps = BaseComponentProps & {
   variant?: "default" | "sensitive";
   label?: string;
-  size?: "sm" | "md" | "lg" | "xl";
 };
 
 export const TextInput: React.FC<TextInputProps> = ({
   variant = "default",
-  children,
   label,
-  size = "md",
   ...props
 }) => {
-  const baseStyles: React.CSSProperties = {
+  const baseStyles = BaseStyleResolver(props);
+
+  const textStyles: React.CSSProperties = {
     padding: "0.25rem 0.5rem",
     borderRadius: resolveRadius("sm"),
-    fontSize: resolveInputSize(size),
     border: "2px solid grey",
+    ...baseStyles,
   };
 
   return (
@@ -28,7 +30,7 @@ export const TextInput: React.FC<TextInputProps> = ({
       )}
       <input
         type={variant == "sensitive" ? "password" : "text"}
-        style={baseStyles}
+        style={textStyles}
         {...props}
       />
     </>
