@@ -5,7 +5,6 @@ type FlexProps = {
   direction?: "row" | "column";
   spacing?: "sm" | "md" | "lg" | "xl" | number;
   children: React.ReactNode;
-  style?: CSSProperties;
 };
 
 export const Flex: React.FC<FlexProps> = ({
@@ -14,17 +13,17 @@ export const Flex: React.FC<FlexProps> = ({
   children,
   ...props
 }) => {
-  const resolvedSystemStyles = BaseStyleResolver(props);
+  const baseStyles = BaseStyleResolver(props);
 
-  const baseStyle: CSSProperties = {
+  const flexStyles: CSSProperties = {
     display: "flex",
     flexDirection: direction,
     gap:
       typeof spacing === "number"
         ? `${spacing}px`
         : BaseStyleResolver({ fs: spacing }).fontSize,
-    ...resolvedSystemStyles,
+    ...baseStyles,
   };
 
-  return <div style={baseStyle}>{children}</div>;
+  return <div style={flexStyles}>{children}</div>;
 };
