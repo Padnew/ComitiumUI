@@ -2,8 +2,12 @@ import React from "react";
 import { Divider } from "../Divider";
 import { resolveShadow } from "../../utils/ShadowResolver";
 import { resolveRadius } from "../../utils/RadiusResolver";
+import {
+  BaseComponentProps,
+  BaseStyleResolver,
+} from "../../types/BaseComponentProps";
 
-type CardProps = {
+type CardProps = BaseComponentProps & {
   title?: string;
   shadow?: "none" | "sm" | "md" | "lg";
   footer?: React.ReactNode;
@@ -19,21 +23,23 @@ export const Card: React.FC<CardProps> = ({
   shadow = "md",
   footer,
   children,
-  style,
   withDividers = false,
   curved = "md",
   backgroundColor = "#ffffff",
+  ...props
 }) => {
-  const baseStyle: React.CSSProperties = {
+  const baseStyles = BaseStyleResolver(props);
+
+  const cardStyles: React.CSSProperties = {
     padding: "1rem",
     boxShadow: resolveShadow(shadow),
     borderRadius: resolveRadius(curved),
     backgroundColor,
-    ...style,
+    ...baseStyles,
   };
 
   return (
-    <div style={baseStyle}>
+    <div style={cardStyles}>
       {title && (
         <>
           <h2
