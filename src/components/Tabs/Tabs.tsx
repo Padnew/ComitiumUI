@@ -1,12 +1,16 @@
 import React, { CSSProperties, useState } from "react";
 import { colorName } from "../../theme";
+import {
+  BaseComponentProps,
+  BaseStyleResolver,
+} from "../../types/BaseComponentProps";
 
 type Tab = {
   label: string;
   content: React.ReactNode;
 };
 
-type TabsProps = {
+type TabsProps = BaseComponentProps & {
   tabs: Tab[];
   defaultTab?: number;
   fullWidth?: boolean;
@@ -18,7 +22,10 @@ export const Tabs: React.FC<TabsProps> = ({
   defaultTab = 0,
   fullWidth = false,
   color = "orange",
+  ...props
 }) => {
+  const baseStyles = BaseStyleResolver(props);
+
   const [activeIndex, setActiveIndex] = useState(defaultTab);
 
   const baseTabStyle: CSSProperties = {
@@ -29,6 +36,7 @@ export const Tabs: React.FC<TabsProps> = ({
     border: "none",
     outline: "none",
     flex: fullWidth ? 1 : undefined,
+    ...baseStyles,
   };
 
   const activeTabStyle: CSSProperties = {
