@@ -1,24 +1,29 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { useTheme } from "../../theme/ThemeProvider";
 import { colorName } from "../../theme";
+import {
+  BaseComponentProps,
+  BaseStyleResolver,
+} from "../../types/BaseComponentProps";
 
 type ButtonVariant = "default" | "outline" | "cancel";
 
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+type ButtonProps = BaseComponentProps & {
   variant?: ButtonVariant;
   color?: colorName;
+  children?: ReactNode;
 };
 
 export const Button: React.FC<ButtonProps> = ({
   variant = "default",
-  children,
   color = "blue",
-  style,
+  children,
   ...props
 }) => {
   const { colors } = useTheme();
+  const baseStyles = BaseStyleResolver(props);
 
-  const baseStyles: React.CSSProperties = {
+  const buttonStyles: React.CSSProperties = {
     padding: "0.5rem 1rem",
     borderRadius: "4px",
     fontWeight: 500,
@@ -26,7 +31,7 @@ export const Button: React.FC<ButtonProps> = ({
     transition: "background-color 0.2s, border-color 0.2s",
     cursor: "pointer",
     fontFamily: "inherit",
-    ...style,
+    ...baseStyles,
   };
 
   const variantStyles = (): React.CSSProperties => {
@@ -55,7 +60,7 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   return (
-    <button style={{ ...baseStyles, ...variantStyles() }} {...props}>
+    <button style={{ ...buttonStyles, ...variantStyles() }} {...props}>
       {children}
     </button>
   );
