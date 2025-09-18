@@ -14,11 +14,7 @@ type Story = StoryObj<typeof Card>;
 
 export const BasicCard: Story = {
   render: () => (
-    <Card
-      title="Basic Comitium Card"
-      shadow="lg"
-      footer="ComitiumUI - 2025"
-    ></Card>
+    <Card title="Basic Comitium Card" shadow="lg" footer="ComitiumUI - 2025" />
   ),
 };
 export const MoreAdvancedCard: Story = {
