@@ -1,9 +1,7 @@
 import React, { CSSProperties, useState } from "react";
 import { colorName } from "../../theme";
-import {
-  BaseComponentProps,
-  BaseStyleResolver,
-} from "../../types/BaseComponentProps";
+import { BaseStyleResolver } from "../../style/baseResolver";
+import { BaseComponentProps } from "../../types/base";
 
 type Tab = {
   label: string;

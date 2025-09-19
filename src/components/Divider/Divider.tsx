@@ -1,6 +1,7 @@
 import React, { CSSProperties } from "react";
 import { colorName } from "../../theme";
-import { BaseStyleResolver } from "../../types/BaseComponentProps";
+import { BaseStyleResolver } from "../../style/baseResolver";
+import { BaseComponentProps } from "../../types/base";
 
 type DividerProps = {
   orientation?: "horizontal" | "vertical";

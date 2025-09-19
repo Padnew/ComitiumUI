@@ -1,10 +1,7 @@
-import { resolveFontFamily } from "../../utils/FontResolver";
+import { resolveFontFamily } from "../../utils/font";
 import { fontFamilyName, colorName } from "../../theme";
-import { fontSizeMap } from "../../utils/SizeResolver";
-import {
-  BaseComponentProps,
-  BaseStyleResolver,
-} from "../../types/BaseComponentProps";
+import { BaseStyleResolver } from "../../style/baseResolver";
+import { BaseComponentProps } from "../../types/base";
 
 type TextProps = BaseComponentProps & {
   fontWeight?: "normal" | "semibold" | "bold";

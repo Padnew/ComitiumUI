@@ -1,9 +1,6 @@
 import React, { CSSProperties } from "react";
-import {
-  BaseComponentProps,
-  BaseStyleResolver,
-} from "../../types/BaseComponentProps";
-import { resolveFontFamily } from "../../utils/FontResolver";
+import { BaseStyleResolver } from "../../style/baseResolver";
+import { BaseComponentProps } from "../../types/base";
 
 type LinkToProps = BaseComponentProps & {
   href: string;

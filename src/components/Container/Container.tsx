@@ -1,7 +1,8 @@
 import React from "react";
 import { resolveShadow } from "../../utils/ShadowResolver";
 import { resolveRadius } from "../../utils/RadiusResolver";
-import { BaseStyleResolver } from "../../types/BaseComponentProps";
+import { BaseStyleResolver } from "../../style/baseResolver";
+import { BaseComponentProps } from "../../types/base";
 
 type ContainerProps = {
   shadow?: "none" | "sm" | "md" | "lg";
