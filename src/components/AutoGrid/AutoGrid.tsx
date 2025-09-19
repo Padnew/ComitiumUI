@@ -1,8 +1,9 @@
 import React, { CSSProperties } from "react";
 import { resolveGridSize } from "../../utils/SizeResolver";
-import { BaseStyleResolver } from "../../types/BaseComponentProps";
+import { BaseStyleResolver } from "../../style/baseResolver";
+import { BaseComponentProps } from "../../types/base";
 
-type AutoGridProps = {
+type AutoGridProps = BaseComponentProps & {
   children: React.ReactNode;
   columns?: number;
   spacing?: "sm" | "md" | "lg" | "xl" | "none" | number;
