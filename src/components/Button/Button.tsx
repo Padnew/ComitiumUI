@@ -1,10 +1,8 @@
 import React, { ReactNode } from "react";
 import { useTheme } from "../../theme/ThemeProvider";
 import { colorName } from "../../theme";
-import {
-  BaseComponentProps,
-  BaseStyleResolver,
-} from "../../types/BaseComponentProps";
+import { BaseStyleResolver } from "../../style/baseResolver";
+import { BaseComponentProps } from "../../types/base";
 
 type ButtonVariant = "default" | "outline" | "cancel";
 

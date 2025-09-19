@@ -2,10 +2,8 @@ import React from "react";
 import { Divider } from "../Divider";
 import { resolveShadow } from "../../utils/ShadowResolver";
 import { resolveRadius } from "../../utils/RadiusResolver";
-import {
-  BaseComponentProps,
-  BaseStyleResolver,
-} from "../../types/BaseComponentProps";
+import { BaseStyleResolver } from "../../style/baseResolver";
+import { BaseComponentProps } from "../../types/base";
 
 type CardProps = BaseComponentProps & {
   title?: string;

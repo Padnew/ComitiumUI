@@ -1,8 +1,6 @@
 import React, { CSSProperties } from "react";
-import {
-  BaseComponentProps,
-  BaseStyleResolver,
-} from "../../types/BaseComponentProps";
+import { BaseStyleResolver } from "../../style/baseResolver";
+import { BaseComponentProps } from "../../types/base";
 type HeaderProps = BaseComponentProps & {
   heading: string;
   subHeading?: string;

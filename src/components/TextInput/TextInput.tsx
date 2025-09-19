@@ -1,7 +1,5 @@
-import {
-  BaseComponentProps,
-  BaseStyleResolver,
-} from "../../types/BaseComponentProps";
+import { BaseStyleResolver } from "../../style/baseResolver";
+import { BaseComponentProps } from "../../types/base";
 import { resolveRadius } from "../../utils/RadiusResolver";
 
 type TextInputProps = BaseComponentProps & {

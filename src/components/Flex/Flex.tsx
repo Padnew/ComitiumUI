@@ -1,7 +1,8 @@
-import { BaseStyleResolver } from "../../types/BaseComponentProps";
+import { BaseStyleResolver } from "../../style/baseResolver";
+import { BaseComponentProps } from "../../types/base";
 import { CSSProperties } from "react";
 
-type FlexProps = {
+type FlexProps = BaseComponentProps & {
   direction?: "row" | "column";
   spacing?: "sm" | "md" | "lg" | "xl" | number;
   children: React.ReactNode;
